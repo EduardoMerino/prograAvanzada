@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include "twoSum.h"
 
 int * getIndexes(int * nums, int len, int target){
   int i, j;
@@ -26,17 +26,4 @@ int * getIndexes(int * nums, int len, int target){
   }
 
   return NULL;
-}
-
-int main(int argn, char ** argv){
-  int nums[] = {2, 7, 11, 15};
-  int target = 9;
-  int * result = getIndexes(nums, 4, target);
-
-  printf("\n");
-  if(result != NULL && (nums[result[0]] + nums[result[1]] == target)){
-    printf("IT WORKS!\n");
-  }else{
-    printf(":(\n");
-  }
 }
