@@ -1,0 +1,2 @@
+
+int getLastWordLen(char * words);
