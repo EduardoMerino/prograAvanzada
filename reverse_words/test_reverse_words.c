@@ -16,9 +16,9 @@
 int testsRun = 0;
 
 static char * testUnit() {
-  char *words = "hello world";
+  char *words = "hola profesor soy lalo hola";
   char *result = reverseWords(words);
-  char *expected = "olleh dlrow";
+  char *expected = "aloh roseforp yos olal aloh";
   printf("RESULT: %s, EXPECTED : %s\n", result, expected);
   muAssert("the string wasnt reversed properly", strcmp(result, expected) == 0);
   return 0;

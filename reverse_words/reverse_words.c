@@ -41,7 +41,7 @@ char* reverseWords(char* words){
     }
 
   }
-  buff[length + 1] = '\0';
+  buff[length] = '\0';
 
   return (char*) buff;
 }
