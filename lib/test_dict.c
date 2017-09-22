@@ -47,11 +47,22 @@ static char* testGetDictionary(){
   upsertDictionary(myDictionary, "uno", (void*) &value, sizeof(int), &errorCode);
   void *result = getDictionary(myDictionary, "uno", sizeof(int), &errorCode);
 
-  value = 27;
-  printf("%d\n", *((int*)result));
-
   muAssert("myDictionary's errorCode must be 0", errorCode == 0);
   muAssert("Result must be equal to value.", *((int*)result) == value);
+
+  return 0;
+}
+
+static char* testGetDictionaryNull(){
+  unsigned int size = 100;
+  int errorCode;
+  Dict *myDictionary = initDictionary(size, &errorCode);
+  int value = 1;
+  upsertDictionary(myDictionary, "uno", (void*) &value, sizeof(int), &errorCode);
+  void *result = getDictionary(myDictionary, "dos", sizeof(int), &errorCode);
+
+  muAssert("myDictionary's errorCode must be 200", errorCode == 200);
+  muAssert("Result must be equal to NULL.", result == NULL);
 
   return 0;
 }
@@ -60,6 +71,7 @@ static char* allTests() {
   muRunTest(testInitDictionary);
   muRunTest(testUpsertDictionary);
   muRunTest(testGetDictionary);
+  muRunTest(testGetDictionaryNull);
   return 0;
 }
 
