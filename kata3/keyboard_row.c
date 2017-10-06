@@ -35,13 +35,14 @@ char** findWords(char** words, int size, int returnSize){
   //char** result = (char**) malloc(sizeof(char[7]) * returnSize);
   //char** result = (char**) malloc(returnSize * sizeof(*result) + (returnSize * (9 * sizeof(**result))));
   char **result;
-  result = (char**) malloc(sizeof(char*) * 4);
+  result = (char**) malloc(sizeof(char*) * returnSize);
 
   int i = 0;
   int j = 0;
   int currWordLen = 0;
   char* currRow;
   int currRowSize;
+  int count = 0;
 
   if(size == 0 || returnSize == 0){
     return NULL;
@@ -57,7 +58,7 @@ char** findWords(char** words, int size, int returnSize){
       currRow = row2;
       currRowSize = 9;
     }else if(isInRow(words[i][j], row3, 7) == 0){
-      currRow = row1;
+      currRow = row3;
       currRowSize = 7;
     }//else{
       //words[i] = '\0'
@@ -67,14 +68,14 @@ char** findWords(char** words, int size, int returnSize){
       if(isInRow(words[i][j], currRow, currRowSize) == 1){
         break;
       }
-      result[i] = strdup(words[i]);
-      //if(j == currWordLen - 1){
-        //result[i][j + 1] = '\0';
-      //}
+
+    }
+    if(j == currWordLen) {
+        result[count] = strdup(words[i]);
+        count++;
     }
   }
 
-
-
+  printf("%s\n", result[0]);
   return result;
 }

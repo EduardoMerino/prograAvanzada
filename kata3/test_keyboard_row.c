@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "minunit.h"
 #include "keyboard_row.h"
 
@@ -15,10 +16,11 @@
 int testsRun = 0;
 
 static char * testUnit() {
-  char* input[] = {"dad"};
-  char* expected[] = {"dad"};
-  char** result = findWords(input, 1, 1);
-  muAssert("Result wasn't the one expected", expected == result);
+  char* input[] = {"hello", "alaska", "dad", "peace"};
+  char* expected[] = {"alaska", "dad"};
+  char** result = findWords(input, 4, 2);
+  printf("expected[0] = %s, result[0] = %s \n", expected[0], result[0]);
+  muAssert("Result wasn't the one expected", strcmp(expected[0], result[0]) == 0);
   return 0;
 }
 
