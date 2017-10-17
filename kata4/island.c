@@ -2,14 +2,16 @@
 #include <stdio.h>
 #include "island.h"
 
-int islandPerimeter(int** map, int rows, int columns){
+int islandPerimeter(int rows, int columns, int map[rows][columns]){
   int perimeter = 0;
   int i, j;
 
   if(map == NULL){
+    printf("ERROR, null map\n");
     return 0;
   }
   if((rows == 0) || (columns == 0)){
+    printf("ERROR, cero rows/colums\n");
     return  0;
   }
 

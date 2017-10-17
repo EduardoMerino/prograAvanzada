@@ -15,15 +15,16 @@
 int testsRun = 0;
 
 static char * testUnit() {
-  int** island = {{0,0,1,0,0},
-                  {0,1,1,1,0},
-                  {0,1,1,1,0},
-                  {0,0,1,0,0}};
+  int island[4][5] = {{0,0,1,0,0},
+                      {0,1,1,1,0},
+                      {0,1,1,1,0},
+                      {0,0,1,0,0}};
   int rowCount = 4;
   int columnCount = 5;
   int expected = 14;
-  int result = islandPerimeter(island, rowCount, columnCount);
-  muAssert("error, testUnit 1 != 1", 1 == 1);
+  int result = islandPerimeter(rowCount, columnCount, island);
+  printf("result %d\n", result);
+  muAssert("Result is equal to expected", result == expected);
   return 0;
 }
 
