@@ -1,15 +1,20 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
-#define NUM_THREADS     500
+#include <unistd.h>
+#define NUM_THREADS     100
 
 unsigned int total;
 
 void *Add100(void *threadid){
   long tid;
   tid = (long)threadid;
+  unsigned int localTotal;
   printf("Adding 100 from thread #%ld!\n", tid + 1);
-  total = total + 100;
+  localTotal = total;
+  localTotal += 100;
+  sleep(tid%3);
+  total = localTotal;
   pthread_exit(NULL);
 }
 
