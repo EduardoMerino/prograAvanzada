@@ -1,0 +1,10 @@
+temp 24
+temp 26
+temp 23
+temp 60
+temp 33
+temp 10
+temp 56
+temp 34
+temp 21
+\n
